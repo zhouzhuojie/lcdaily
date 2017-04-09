@@ -2,6 +2,7 @@
 Leetcode Daily - Sends yourself a random leetcode email every day.
 
 # Preview
+![Demo](images/demo.png?raw=true "lcdaily demo")
 
 # Get started
 ```bash

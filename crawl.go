@@ -31,6 +31,10 @@ type LeetcodePage struct {
 
 	// QuestionInfo is the question info
 	QuestionInfo string
+
+	// HostPort is the host port that we can use to hit our own server
+	// in an adhoc url
+	HostPort string
 }
 
 // NewRandomLeetcodePage creates a new random page
@@ -75,10 +79,11 @@ func NewLeetcodePage(url string) (*LeetcodePage, error) {
 }
 
 // ToHTML returns HTML representation of the page
-func (l *LeetcodePage) ToHTML() []byte {
+func (l *LeetcodePage) ToHTML(host string, port string) []byte {
+
+	l.HostPort = fmt.Sprintf("%s:%s", host, port)
 
 	var b bytes.Buffer
-
 	t := template.Must(template.New(htmlTemplateName).ParseFiles(htmlTemplateName))
 	err := t.Execute(&b, l)
 	if err != nil {

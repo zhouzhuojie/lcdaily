@@ -3,17 +3,15 @@ package main
 import (
 	"fmt"
 	"net/smtp"
-	"os"
 
 	"github.com/jordan-wright/email"
 )
 
 var (
-	userEmail    = os.Getenv("userEmail")
-	userPassword = os.Getenv("userPassword")
-	smtpHost     = "smtp.gmail.com"
-	smtpPort     = 587
-	subject      = "Leetcode Daily"
+	subject = "Leetcode Daily"
+
+	smtpHost = "smtp.gmail.com"
+	smtpPort = 587
 
 	// auth should be loaded from env or config
 	auth = smtp.PlainAuth("", userEmail, userPassword, smtpHost)

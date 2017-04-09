@@ -14,7 +14,7 @@ Leetcode Daily - Sends yourself a random leetcode email every day.
 # userEmail=username@gmail.com
 # userPassword=123456
 
-# your server host information for setting up adhoc url queries
+# your server host information for setting up the "send another random question" url
 # serverHost=10.10.10.10 or serverHost=sub.mydomain.com
 # serverPort=8080
 

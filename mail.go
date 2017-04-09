@@ -13,7 +13,7 @@ var (
 	userPassword = os.Getenv("userPassword")
 	smtpHost     = "smtp.gmail.com"
 	smtpPort     = 587
-	subject      = "Github Trending Daily"
+	subject      = "Leetcode Daily"
 
 	// auth should be loaded from env or config
 	auth = smtp.PlainAuth("", userEmail, userPassword, smtpHost)

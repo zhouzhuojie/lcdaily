@@ -61,7 +61,7 @@ func NewLeetcodePage(url string) (*LeetcodePage, error) {
 		return nil, err
 	}
 
-	descriptionDiv := doc.Find("meta").Eq(2)
+	descriptionDiv := doc.Find("meta[name=description]").Eq(0)
 	description, _ := descriptionDiv.Attr("content")
 
 	title := doc.Find("h3").First().Text()

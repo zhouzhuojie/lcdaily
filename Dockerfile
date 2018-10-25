@@ -9,4 +9,5 @@ FROM alpine:3.6
 RUN apk add --no-cache libc6-compat ca-certificates curl
 WORKDIR /go/src/github.com/zhouzhuojie/lcdaily
 COPY --from=builder /go/src/github.com/zhouzhuojie/lcdaily/lcdaily ./lcdaily
+COPY --from=builder /go/src/github.com/zhouzhuojie/lcdaily/email_template.html ./email_template.html
 CMD ./lcdaily

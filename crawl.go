@@ -3,9 +3,9 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"html/template"
 	"net/http"
 	"strings"
+	"text/template"
 
 	leetcodegraphql "github.com/WindomZ/leetcode-graphql"
 )
@@ -65,7 +65,7 @@ func NewLeetcodePage(url string) (*LeetcodePage, error) {
 		Description:  q.Content,
 		URL:          leetcodeBaseURL + q.QuestionDetailURL,
 		SolutionURL:  leetcodeBaseURL + q.QuestionDetailURL + "discuss",
-		QuestionInfo: fmt.Sprintf("Difficulty: %s", q.Difficulty),
+		QuestionInfo: fmt.Sprintf("ID: %s, Difficulty: %s", q.QuestionID, q.Difficulty),
 	}
 
 	return l, nil

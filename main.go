@@ -24,6 +24,8 @@ var (
 )
 
 func main() {
+	sendRandomLeetcodeEmail()
+
 	// schedule daily email
 	go scheduledDailyEmail()
 

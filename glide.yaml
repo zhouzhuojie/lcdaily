@@ -1,8 +1,0 @@
-package: github.com/zhouzhuojie/lcdaily
-import:
-- package: github.com/PuerkitoBio/goquery
-  version: ^1.1.0
-- package: github.com/andybalholm/cascadia
-- package: github.com/jordan-wright/email
-  version: ^2.2.0
-- package: github.com/jasonlvhit/gocron

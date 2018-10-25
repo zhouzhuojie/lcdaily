@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"strings"
 
-	"github.com/PuerkitoBio/goquery"
+	leetcodegraphql "github.com/WindomZ/leetcode-graphql"
 )
 
 const (
@@ -54,25 +55,17 @@ func NewRandomLeetcodePage() (*LeetcodePage, error) {
 
 // NewLeetcodePage creates a new leetcode page from url
 func NewLeetcodePage(url string) (*LeetcodePage, error) {
+	titleSlug := strings.Split(url, "/")[4]
 
-	doc, err := goquery.NewDocument(url)
-
-	if err != nil {
-		return nil, err
-	}
-
-	descriptionDiv := doc.Find("meta[name=description]").Eq(0)
-	description, _ := descriptionDiv.Attr("content")
-
-	title := doc.Find("h3").First().Text()
-	questionInfo := doc.Find(".question-info").First().Text()
+	q := new(leetcodegraphql.BaseQuestion)
+	q.Do(titleSlug)
 
 	l := &LeetcodePage{
-		Title:        title,
-		Description:  description,
-		URL:          url,
-		SolutionURL:  url + "#/solutions",
-		QuestionInfo: questionInfo,
+		Title:        q.QuestionTitle,
+		Description:  q.Content,
+		URL:          leetcodeBaseURL + q.QuestionDetailURL,
+		SolutionURL:  leetcodeBaseURL + q.QuestionDetailURL + "discuss",
+		QuestionInfo: fmt.Sprintf("Difficulty: %s", q.Difficulty),
 	}
 
 	return l, nil
